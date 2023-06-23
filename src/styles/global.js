@@ -130,7 +130,7 @@ p {
 .home-icons .contact-icons {
     transform: scale(1.5);
     background-color: #101010;
-    box-shadow: 1px 1px 1px #5c5b5b, 
+    box-shadow: 1px 1px 2px #5c5b5b, 
             -1px -1px 2px #080707;
     color: #9575de;
     padding: 0.2rem;
@@ -211,7 +211,9 @@ p {
 .education, .experience {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5rem;
     margin-top: 2rem;
 }
 
@@ -274,8 +276,8 @@ p {
 .project-section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 2rem;
+    justify-content: center;
+    gap: 5rem;
     margin-top: 2rem;
     width: 100%;
 }
@@ -283,7 +285,7 @@ p {
 .project-card {
     box-shadow: 4px 4px 3px #5c5b5b, 
             -5px -5px 4px #080707;
-    width: 30%;
+    width: 20%;
     cursor: pointer;
     padding: 1rem;
     border-radius: 1rem;
