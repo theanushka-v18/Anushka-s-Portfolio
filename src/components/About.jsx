@@ -24,6 +24,15 @@ const About = () => {
                 <h1>Education</h1>
                 <div className='education'>
                     <div className='about-card-container'>
+                        <img src={require('../images/acciojoblogo.jpg')} />
+                        <InsideAbout
+                            name='Acciojob'
+                            location='Remote, India'
+                            timeline='2022 - Present'
+                            position='Full Stack Web Development'
+                        />
+                    </div>
+                    <div className='about-card-container'>
                         <SchoolIcon style={iconStyles} />
                         <InsideAbout
                             name='Allenhouse Business School'
