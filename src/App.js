@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { GlobalStyles } from "./styles/global";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import { useLocation } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import Certificates from "./components/Certificates";
+
 
 function App() {
+
+  let location = useLocation();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalStyles />
+      <Navbar />
+      {location.pathname=='/' && <Home />}
+      {location.pathname=='/about' && <About />}
+      {location.pathname=='/projects' && <Projects />}
+      {location.pathname=='/skills' && <Skills />}
+      {location.pathname=='/certificates' && <Certificates />}
+      <Footer />
     </div>
   );
 }
