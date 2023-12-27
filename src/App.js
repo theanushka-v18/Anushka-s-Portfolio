@@ -1,30 +1,28 @@
-import React from "react";
 import { GlobalStyles } from "./styles/global";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import { useLocation } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Certificates from "./components/Certificates";
-
+import { ThemeProvider } from "styled-components";
+import { useTheme } from "./context/themeContext";
+import {useThemeMode} from "./context/themeModeContext";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 
 function App() {
 
-  let location = useLocation();
-
+  const {theme} = useTheme();
+  const {themeMode} = useThemeMode();
   return (
-    <div className="App">
-      <GlobalStyles />
-      <Navbar />
-      {location.pathname=='/' && <Home />}
-      {location.pathname=='/about' && <About />}
-      {location.pathname=='/projects' && <Projects />}
-      {location.pathname=='/skills' && <Skills />}
-      {location.pathname=='/certificates' && <Certificates />}
-      <Footer />
-    </div>
+    <ThemeProvider themeMode={themeMode} theme={theme}>
+      <div className="App">
+        <GlobalStyles />
+        <Routes>
+          <Route path='/' element={<HomePage />}>
+            <Route path='about' element={<HomePage />} />  
+            <Route path='skills' element={<HomePage />} />  
+            <Route path='projects' element={<HomePage />} />  
+            <Route path='contact' element={<HomePage />} />  
+          </Route>
+        </Routes>
+      </div>
+    </ThemeProvider>
   );
 }
 
